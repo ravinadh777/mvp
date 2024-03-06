@@ -1,6 +1,6 @@
+name: auto code merge 
 
- name: auto code merge 
- on:
+on:
   workflow_dispatch:
     inputs:
       codemerge:
@@ -9,22 +9,21 @@
         default: 'main'
         type: choice
         options:
-        - yes
-        - no
- jobs:
+          - yes
+          - no
+
+jobs:
   merge-branch:
     runs-on: ubuntu-latest
-      steps:
-      - name: Set Git user info
-        run: |
-          git config --global user.email "ravinathb8325@gmail.com"
-          git config --global user.name "ravinadh777"
 
-          repository: ravinadh777-trail
-          token: "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"
-
+    steps:
+      - name: Set Git user info
+        run: |
+          git config --global user.email "ravinathb8325@gmail.com"
+          git config --global user.name "ravinadh777"
 
       - uses: actions/checkout@v2
+
       - uses: everlytic/branch-merge@1.1.2
         with:
           github_token: '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'

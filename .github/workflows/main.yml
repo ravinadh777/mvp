@@ -6,7 +6,7 @@
       Sonarqube_scan:
         description: 'dev to stage code merge'
         required: true
-        default: ''
+        default: 'main'
         type: choice
         options:
         - yes
@@ -18,7 +18,7 @@
       - uses: actions/checkout@v2
       - uses: everlytic/branch-merge@1.1.2
         with:
-          github_token: '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'
+          github_token: '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'
           source_ref: 'develop'
           target_branch: 'staging'
           commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
